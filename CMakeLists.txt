@@ -9,16 +9,16 @@ SET(CMAKE_MODULE_PATH
 )
 
 # Build options
-option(LUA          "Lua support (required for some mods)."					"OFF")
-option(TILES        "Build graphical tileset version."						"OFF")
-option(CURSES       "Build curses version."							"ON" )
-option(SOUND        "Support for in-game sounds & music."					"OFF")
+option(LUA          "Lua support (required for some mods)."					"ON")
+option(TILES        "Build graphical tileset version."						"ON")
+option(CURSES       "Build curses version."							"OFF" )
+option(SOUND        "Support for in-game sounds & music."					"ON")
 option(RELEASE      "Disable debug. Use it for user-ready buils."				"OFF")
 option(USE_HOME_DIR "Use user's home directory for save files."					"ON" )
 option(LOCALIZE     "Support for language localizations. Also enable UTF support."		"ON" )
 option(LANGUAGES    "Compile localization files for specified languages."			""   )
 option(DYNAMIC_LINKING "Use dynamic linking. Or use static to remove MinGW dependency instead."	"ON")
-option(LUA_BINARY   "Lua binary name or path. You can try to use luajit for extra speed."	"")
+option(LUA_BINARY   "Lua binary name or path. You can try to use luajit for extra speed."	"luajit")
 option(GIT_BINARY   "Git binary name or path."							"")
 OPTION(PREFIX       "Location of Data,GFX, & Lua directories"                                   "")
 
@@ -393,6 +393,9 @@ ADD_CUSTOM_TARGET(uninstall
 
 find_program(CCACHE_FOUND ccache)
 if(CCACHE_FOUND)
+    MESSAGE("-- CCache found")
     set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
     set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK ccache)
+else(CCACHE_FOUND)
+    MESSAGE("ccache not found - builds will be slow")
 endif(CCACHE_FOUND)
