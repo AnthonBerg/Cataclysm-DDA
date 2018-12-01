@@ -1501,6 +1501,7 @@
         { "id": [ "t_tree_willow" ], "fg": [ 916 ], "bg": 915 },
         { "id": [ "t_tree_willow_harvested" ], "fg": [ 917 ], "bg": 915 },
         { "id": [ "t_tree_willow_season_winter" ], "bg": 915 },
+        { "id": [ "t_tree_dead" ], "bg": 2480 },
         { "id": [ "t_trunk" ], "multitile": true, "fg": [ 918, 919 ] },
         { "id": [ "t_utility_light" ], "fg": [ 920 ] },
         { "id": [ "t_vat" ], "fg": [ 921 ] },
